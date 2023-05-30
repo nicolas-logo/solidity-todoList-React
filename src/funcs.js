@@ -2,7 +2,7 @@ import TodoListJSON from '../build/contracts/TodoList.json';
 import Web3 from 'web3';
 var contract = require('@truffle/contract');
 
-export const load = async () => {debugger;
+export const load = async () => {
     await loadWeb3();
     const addressAccount = await loadAccount();
     const { todoContract, tasks } = await loadContract(addressAccount);

@@ -2,11 +2,12 @@ import type { NextPage } from 'next'
 import React from 'react'
 import { load } from '../src/funcs';
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
 
 const Home: NextPage = () => {
   const [input, setInput] = React.useState<string>('');
   const [refresh, setRefresh] = React.useState<boolean>(true);
-  const [addressAccount, setAddresAccount] = React.useState<any>(null);
+  const [addressAccount, setAddressAccount] = React.useState<any>(null);
   const [contract, setContract] = React.useState<any>(null);
   const [tasks, setTasks] = React.useState<any[]>([]);
 
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
     if (!refresh) return;
     setRefresh(false);
     load().then((e) => {
-      setAddresAccount(e.addressAccount);
+      setAddressAccount(e.addressAccount);
       setTasks(e.tasks);
       setContract(e.todoContract);
     });
@@ -45,8 +46,8 @@ const Home: NextPage = () => {
                 <div className="card card-body rouded-0 mb-4 bg-dark">
                     <h1>Tasks App</h1>
                     <h6 className="text-muted">Decentralized App</h6>
-                    <span>Wallet</span>
-                    <i className="bi bi-wallet2">  <span id="wallet-id"></span></i>
+                    <span className='span-wallet'>Wallet</span>
+                    <i className="bi bi-wallet2"><span id="wallet-id"> {addressAccount}</span></i>
                 </div>
                 <div id="task-form" className="card card-body rouded-0 bg-dark">
                     <h4>Create New Task</h4>
@@ -61,8 +62,9 @@ const Home: NextPage = () => {
                     <button onClick={handleAddTask} className=" form-control btn btn-success">Save</button>
                 </div>
             </div>
-            <div id="task-list" className="col-md-4">
-            {
+            <div id="task-list" className="col-md-4 text-center">
+              <h3 className='mb-4'>To Do Tasks</h3>
+              {
                 tasks == null ? null
                 : tasks.map((task, idx) => !task.completed ?
                     <div key={idx} className="card bg-dark mb-2">
@@ -77,7 +79,8 @@ const Home: NextPage = () => {
                 )
               }
             </div>
-            <div id="task-list" className="col-md-4">
+            <div id="task-list" className="col-md-4 text-center">
+            <h3 className='mb-4'>Done Tasks</h3>
             {
                 tasks == null ? null
                 : tasks.map((task, idx) => task.completed ?
