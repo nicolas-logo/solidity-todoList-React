@@ -95,58 +95,6 @@ const Home: NextPage = () => {
             </div>
         </div>
     </div>
-      {/* <VStack>
-          <Head>
-            <title>Todo List</title>
-            <meta name="description" content="Blockchain TodoList." />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <HStack w='full'>
-            <Spacer />
-            <VStack bg='gray.100'>
-              <Heading>Blockchain TodoList</Heading>
-              <Box h='30px'/>
-              <HStack w='md'>
-                <Input
-                type='text'
-                size='md'
-                bg='white'
-                placeholder='New Task...'
-                onChange={handleInputChange}
-                value={input}
-                />
-                <Button onClick={handleAddTask} bg='green.200'>ADD</Button>
-              </HStack>
-              <Box h='30px' />
-              <Text>ToDO</Text>
-              {
-                tasks == null ? <Spinner />
-                : tasks.map((task, idx) => !task[2] ?
-                <HStack key={idx} w='md' bg='gray.100' borderRadius={7}>
-                  <Box w='5px' />
-                  <Text>{task[1]}</Text>
-                  <Spacer />
-                  <Button bg='green.300' onClick={ () => handleToggled(task[0].toNumber()) }>DONE</Button>
-                </HStack> : null
-                )
-              }
-              <Box h='10px' />
-              <Text>Tasks done</Text>
-              {
-                tasks == null ? <Spinner /> :
-                tasks.map((task, idx) => task[2] ?
-                <HStack key={idx} w='md' bg='gray.100' borderRadius={7}>
-                  <Box w='5px' />
-                  <Text>{task[1]}</Text>
-                  <Spacer />
-                  <Button bg='red.300' onClick={ () => handleToggled(task[0].toNumber() ) }>UNDONE</Button>
-                </HStack> : null
-                )
-              }
-            </VStack>
-            <Spacer />
-          </HStack>
-      </VStack> */}
     </>
   )
 }
